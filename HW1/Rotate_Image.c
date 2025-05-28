@@ -18,14 +18,14 @@ int main(void) {
 
 int select(void) {
     int choice;
-    printf("1. Clockwise 90 | 2. Clockwise 180 | 3. Clockwise 270 | 4. Mirror | 5. Flip \nÈ¸Àü ¹æÇâÀ» ¼±ÅÃÇÏ¼¼¿ä: ");
+    printf("1. Clockwise 90 | 2. Clockwise 180 | 3. Clockwise 270 | 4. Mirror | 5. Flip \níšŒì „ ë°©í–¥ì„ ì„ íƒí•˜ì„¸ìš”: ");
     scanf("%d", &choice);
 
     if (choice >= 1 && choice <= 5) {
         return rotate(choice);
     }
     else {
-        printf("Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù.");
+        printf("ìž˜ëª»ëœ ì„ íƒìž…ë‹ˆë‹¤.");
         return 1;
     }
 }
@@ -36,13 +36,13 @@ unsigned char* load_image(const char* filename) {
 
     file_input = fopen(filename, "rb");
     if (file_input == NULL) {
-        printf("ÆÄÀÏÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n");
+        printf("íŒŒì¼ì´ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n");
         return NULL;
     }
 
     img = (unsigned char*)malloc(WIDTH * HEIGHT * sizeof(unsigned char));
     if (img == NULL) {
-        printf("¸Þ¸ð¸® ÇÒ´ç ¿À·ù ¹ß»ý\n");
+        printf("ë©”ëª¨ë¦¬ í• ë‹¹ ì˜¤ë¥˜ ë°œìƒ\n");
         fclose(file_input);
         return NULL;
     }
@@ -64,7 +64,7 @@ int rotate(int choice) {
 
     img_rotate = (unsigned char*)malloc(WIDTH * HEIGHT * sizeof(unsigned char));
     if (img_rotate == NULL) {
-        printf("¸Þ¸ð¸® ÇÒ´ç ¿À·ù ¹ß»ý\n");
+        printf("ë©”ëª¨ë¦¬ í• ë‹¹ ì˜¤ë¥˜ ë°œìƒ\n");
         free(img);
         return -1;
     }
@@ -108,7 +108,7 @@ int rotate(int choice) {
     }
 
     if (save_image(output_filename, img_rotate) != 0) {
-        printf("ÀÌ¹ÌÁö ÀúÀå ½ÇÆÐ\n");
+        printf("ì´ë¯¸ì§€ ì €ìž¥ ì‹¤íŒ¨\n");
     }
 
     free(img_rotate);
@@ -122,7 +122,7 @@ int save_image(const char* filename, unsigned char* img) {
 
     file_output = fopen(filename, "wb");
     if (file_output == NULL) {
-        printf("ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù.\n");
+        printf("íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
         return -1;
     }
 
