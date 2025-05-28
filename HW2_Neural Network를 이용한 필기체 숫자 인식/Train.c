@@ -7,9 +7,9 @@
 
 #define INPUT_NODES 784 // 28*28
 #define NUM_TRAIN 60000
-// Size of batch images, ¿Â¶óÀÎ ¸ğµå·Î ±¸ÇöµÇ¾î »ç¿ëÇÏÁö ¾ÊÀ½
-// # of hidden layers: Á¦¾à ¾øÀ½, »ç¿ëÀÚ°¡ ÀÔ·ÂÇÏµµ·Ï ±¸ÇöµÇ¾î ÀÖÀ½
-// # of nodes in hidden layers: Á¦¾à ¾øÀ½, »ç¿ëÀÚ°¡ ÀÔ·ÂÇÏµµ·Ï ±¸ÇöµÇ¾î ÀÖÀ½
+// Size of batch images, ì˜¨ë¼ì¸ ëª¨ë“œë¡œ êµ¬í˜„ë˜ì–´ ì‚¬ìš©í•˜ì§€ ì•ŠìŒ
+// # of hidden layers: ì œì•½ ì—†ìŒ, ì‚¬ìš©ìê°€ ì…ë ¥í•˜ë„ë¡ êµ¬í˜„ë˜ì–´ ìˆìŒ
+// # of nodes in hidden layers: ì œì•½ ì—†ìŒ, ì‚¬ìš©ìê°€ ì…ë ¥í•˜ë„ë¡ êµ¬í˜„ë˜ì–´ ìˆìŒ
 #define OUTPUT_NODES 10
 #define ACTIVATION_FUNCTION(x) (1.0 / (1.0 + exp(-(x)))) // Activation Function: Sigmoid
 
@@ -83,7 +83,7 @@ int main() {
 
     finish = clock();
     duration = (double)(finish - start) / CLOCKS_PER_SEC;
-    printf("Training ¼Ò¿ä ½Ã°£: %.2lf sec", duration);
+    printf("Training ì†Œìš” ì‹œê°„: %.2lf sec", duration);
 
     char filename[100];
     snprintf(filename, sizeof(filename), "../../trained_network_%d.txt", num_hidden_layers);
